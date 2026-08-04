@@ -7,6 +7,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import Socios from './Socios';
 import Entrenadores from './Entrenadores'; // <-- LÍNEA AGREGADA
 import Membresias from './Membresias';
+import Pagos from './Pagos';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -104,6 +105,7 @@ function Dashboard() {
                             <Route path="socios" element={<Socios />} />
                             <Route path="entrenadores" element={<Entrenadores />} />
                             <Route path="membresias" element={<Membresias />} />
+                            <Route path="pagos" element={<Pagos />} />
                             {/* Aquí irán las demás rutas (membresias, pagos, etc.) cuando las creemos */}
                         </Routes>
                     </Col>
