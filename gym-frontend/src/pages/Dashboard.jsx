@@ -6,6 +6,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 // 1. IMPORTAR LOS COMPONENTES DE LAS PÁGINAS
 import Socios from './Socios';
 import Entrenadores from './Entrenadores'; // <-- LÍNEA AGREGADA
+import Membresias from './Membresias';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Dashboard() {
         <div>
             {/* Barra de navegación superior */}
             <Navbar bg="dark" variant="dark" className="px-3">
-                <Navbar.Brand>Gimnasio Management System</Navbar.Brand>
+                <Navbar.Brand>SoftGym</Navbar.Brand>
                 <Navbar.Text className="ms-auto text-light me-3">
                     Usuario: {usuario.username || 'Admin'}
                 </Navbar.Text>
@@ -43,7 +44,7 @@ function Dashboard() {
                                 active={activeMenu === 'inicio'}
                                 onClick={() => setActiveMenu('inicio')}
                             >
-                                📊 Inicio
+                                 Inicio
                             </Nav.Link>
                             <Nav.Link 
                                 as={Link} 
@@ -51,7 +52,7 @@ function Dashboard() {
                                 active={activeMenu === 'socios'}
                                 onClick={() => setActiveMenu('socios')}
                             >
-                                👥 Socios
+                                 Socios
                             </Nav.Link>
                             <Nav.Link 
                                 as={Link} 
@@ -59,7 +60,7 @@ function Dashboard() {
                                 active={activeMenu === 'entrenadores'}
                                 onClick={() => setActiveMenu('entrenadores')}
                             >
-                                🏋️ Entrenadores
+                                 Entrenadores
                             </Nav.Link>
                             <Nav.Link 
                                 as={Link} 
@@ -67,7 +68,7 @@ function Dashboard() {
                                 active={activeMenu === 'membresias'}
                                 onClick={() => setActiveMenu('membresias')}
                             >
-                                💳 Membresías
+                                 Membresías
                             </Nav.Link>
                             <Nav.Link 
                                 as={Link} 
@@ -75,7 +76,7 @@ function Dashboard() {
                                 active={activeMenu === 'pagos'}
                                 onClick={() => setActiveMenu('pagos')}
                             >
-                                💰 Pagos
+                                 Pagos
                             </Nav.Link>
                             <Nav.Link 
                                 as={Link} 
@@ -83,7 +84,7 @@ function Dashboard() {
                                 active={activeMenu === 'rutinas'}
                                 onClick={() => setActiveMenu('rutinas')}
                             >
-                                📝 Rutinas
+                                 Rutinas
                             </Nav.Link>
                             <Nav.Link 
                                 as={Link} 
@@ -91,7 +92,7 @@ function Dashboard() {
                                 active={activeMenu === 'asistencias'}
                                 onClick={() => setActiveMenu('asistencias')}
                             >
-                                ✅ Asistencias
+                                 Asistencias
                             </Nav.Link>
                         </Nav>
                     </Col>
@@ -101,7 +102,8 @@ function Dashboard() {
                         <Routes>
                             <Route path="/" element={<Inicio />} />
                             <Route path="socios" element={<Socios />} />
-                            <Route path="entrenadores" element={<Entrenadores />} /> {/* <-- LÍNEA AGREGADA */}
+                            <Route path="entrenadores" element={<Entrenadores />} />
+                            <Route path="membresias" element={<Membresias />} />
                             {/* Aquí irán las demás rutas (membresias, pagos, etc.) cuando las creemos */}
                         </Routes>
                     </Col>
