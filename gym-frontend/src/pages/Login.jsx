@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import './Login.css';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -21,11 +22,8 @@ function Login() {
                 password
             });
 
-            // Guardar token en localStorage
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
-
-            // Redirigir al dashboard
             navigate('/dashboard');
         } catch (err) {
             setError(err.response?.data?.error || 'Error al iniciar sesión');
@@ -35,47 +33,81 @@ function Login() {
     };
 
     return (
-        <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-            <Card style={{ width: '400px' }}>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Gimnasio - Login</h2>
-                    
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Usuario</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Ingresa tu usuario"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
+        <Container fluid className="p-0">
+            <Row className="g-0" style={{ minHeight: '100vh' }}>
+                {/* Columna izquierda - Roja con ilustración */}
+                <Col md={6} className="login-left d-flex align-items-center justify-content-center p-5">
+                    <div className="text-center text-white">
+                        <div className="mb-4">
+                            <h1 className="display-4 fw-bold">🏋️ SoftGym</h1>
+                            <p className="lead">Sistema de Gestión de Gimnasio</p>
+                        </div>
+                        <div className="login-illustration">
+                            <img 
+                                src="https://img.freepik.com/free-vector/flat-design-people-working-out_23-2149018516.jpg" 
+                                alt="Gym Illustration" 
+                                className="img-fluid rounded"
+                                style={{ maxHeight: '400px', opacity: 0.9 }}
                             />
-                        </Form.Group>
+                        </div>
+                    </div>
+                </Col>
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Ingresa tu contraseña"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </Form.Group>
+                {/* Columna derecha - Blanca con formulario */}
+                <Col md={6} className="login-right d-flex align-items-center justify-content-center p-5">
+                    <div style={{ maxWidth: '400px', width: '100%' }}>
+                        <h2 className="mb-4 fw-bold text-dark">¡Bienvenido de nuevo!</h2>
+                        
+                        {error && <Alert variant="danger">{error}</Alert>}
+                        
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group className="mb-3">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Correo electrónico"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    required
+                                    className="py-3"
+                                    style={{ border: '2px solid #ddd', borderRadius: '8px' }}
+                                />
+                            </Form.Group>
 
-                        <Button 
-                            variant="primary" 
-                            type="submit" 
-                            className="w-100"
-                            disabled={loading}
-                        >
-                            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-                        </Button>
-                    </Form>
-                </Card.Body>
-            </Card>
+                            <Form.Group className="mb-4">
+                                <Form.Control
+                                    type="password"
+                                    placeholder="Contraseña"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                    className="py-3"
+                                    style={{ border: '2px solid #ddd', borderRadius: '8px' }}
+                                />
+                            </Form.Group>
+
+                            <Button 
+                                variant="danger" 
+                                type="submit" 
+                                className="w-100 py-3 fw-bold"
+                                disabled={loading}
+                                style={{ 
+                                    backgroundColor: '#a52a2a', 
+                                    borderColor: '#a52a2a',
+                                    borderRadius: '25px'
+                                }}
+                            >
+                                {loading ? 'Iniciando sesión...' : 'Iniciar sesión'}
+                            </Button>
+
+                            <div className="text-center mt-3">
+                                <a href="#" className="text-muted" style={{ textDecoration: 'none' }}>
+                                    Recordar contraseña
+                                </a>
+                            </div>
+                        </Form>
+                    </div>
+                </Col>
+            </Row>
         </Container>
     );
 }
