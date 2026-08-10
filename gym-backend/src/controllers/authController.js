@@ -37,7 +37,6 @@ class AuthController {
                 if (!emailRegex.test(email)) {
                 return res.status(400).json({ error: 'El formato del email no es válido' });
             }
-            //Prueba de commit forzado
 
             res.status(201).json({
                 message: 'Usuario registrado exitosamente',
