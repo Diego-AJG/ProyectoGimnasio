@@ -173,6 +173,7 @@ function Socios() {
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
+                                placeholder="Ej: Juan"
                                 value={formData.nombre}
                                 onChange={(e) => setFormData({...formData, nombre: e.target.value})}
                                 required
@@ -182,6 +183,7 @@ function Socios() {
                             <Form.Label>Apellido</Form.Label>
                             <Form.Control
                                 type="text"
+                                placeholder="Ej: Pérez"
                                 value={formData.apellido}
                                 onChange={(e) => setFormData({...formData, apellido: e.target.value})}
                                 required
@@ -191,6 +193,7 @@ function Socios() {
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="email"
+                                placeholder="correo@ejemplo.com"
                                 value={formData.email}
                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                                 required
@@ -200,6 +203,7 @@ function Socios() {
                             <Form.Label>Teléfono</Form.Label>
                             <Form.Control
                                 type="text"
+                                placeholder="5551234567"
                                 value={formData.telefono}
                                 onChange={(e) => setFormData({...formData, telefono: e.target.value})}
                             />
