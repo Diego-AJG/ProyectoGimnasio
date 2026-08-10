@@ -34,7 +34,7 @@ function Configuracion() {
 
     return (
         <Container fluid>
-            <h2 className="mb-4 fw-bold">⚙️ Configuración del Sistema</h2>
+            <h2 className="mb-4 fw-bold">Configuración del Sistema</h2>
             
             {success && <Alert variant="success">{success}</Alert>}
 
