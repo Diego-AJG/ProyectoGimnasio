@@ -134,14 +134,6 @@ function Dashboard() {
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
-                            to="/dashboard/usuarios" 
-                            active={activeMenu === 'usuarios'}
-                            onClick={() => setActiveMenu('usuarios')}
-                        >
-                             Usuarios
-                        </Nav.Link>
-                        <Nav.Link 
-                            as={Link} 
                             to="/dashboard/configuracion" 
                             active={activeMenu === 'configuracion'}
                             onClick={() => setActiveMenu('configuracion')}
@@ -194,7 +186,6 @@ function Dashboard() {
                             <Route path="rutinas" element={<Rutinas />} />
                             <Route path="asistencias" element={<Asistencias />} />
                             <Route path="reportes" element={<Reportes />} />
-                            <Route path="usuarios" element={<div className="text-center p-5"><h3>Módulo de Usuarios (Próximamente)</h3></div>} />
                             <Route path="configuracion" element={<div className="text-center p-5"><h3>Configuración (Próximamente)</h3></div>} />
                         </Routes>
                     </div>
