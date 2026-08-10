@@ -82,7 +82,7 @@ function Dashboard() {
                             active={activeMenu === 'socios'}
                             onClick={() => setActiveMenu('socios')}
                         >
-                            👥 Socios
+                             Socios
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -90,7 +90,7 @@ function Dashboard() {
                             active={activeMenu === 'membresias'}
                             onClick={() => setActiveMenu('membresias')}
                         >
-                            💳 Membresías
+                             Membresías
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -98,7 +98,7 @@ function Dashboard() {
                             active={activeMenu === 'pagos'}
                             onClick={() => setActiveMenu('pagos')}
                         >
-                            💰 Pagos
+                             Pagos
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -106,7 +106,7 @@ function Dashboard() {
                             active={activeMenu === 'entrenadores'}
                             onClick={() => setActiveMenu('entrenadores')}
                         >
-                            🏋️ Entrenadores
+                             Entrenadores
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -114,7 +114,7 @@ function Dashboard() {
                             active={activeMenu === 'rutinas'}
                             onClick={() => setActiveMenu('rutinas')}
                         >
-                            📝 Rutinas
+                             Rutinas
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -122,7 +122,7 @@ function Dashboard() {
                             active={activeMenu === 'asistencias'}
                             onClick={() => setActiveMenu('asistencias')}
                         >
-                            ✅ Asistencias
+                             Asistencias
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -138,7 +138,7 @@ function Dashboard() {
                             active={activeMenu === 'usuarios'}
                             onClick={() => setActiveMenu('usuarios')}
                         >
-                            👤 Usuarios
+                             Usuarios
                         </Nav.Link>
                         <Nav.Link 
                             as={Link} 
@@ -146,7 +146,7 @@ function Dashboard() {
                             active={activeMenu === 'configuracion'}
                             onClick={() => setActiveMenu('configuracion')}
                         >
-                            ⚙️ Configuración
+                             Configuración
                         </Nav.Link>
                     </Nav>
                 </Col>
@@ -169,7 +169,7 @@ function Dashboard() {
                             <div className="dropdown">
                                 <Button variant="light" className="d-flex align-items-center">
                                     <div className="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-2" style={{ width: '35px', height: '35px' }}>
-                                        👤
+                                        
                                     </div>
                                     <div className="text-start">
                                         <div className="fw-bold small">{usuario.rol || 'Administrador'}</div>
@@ -218,7 +218,7 @@ function Inicio({ stats }) {
                                     <Card.Title className="text-muted small mb-2">Socios</Card.Title>
                                     <Card.Text className="fs-2 fw-bold text-primary mb-0">{stats.socios}</Card.Text>
                                 </div>
-                                <div className="fs-1">👥</div>
+                                <div className="fs-1"></div>
                             </div>
                         </Card.Body>
                     </Card>
@@ -231,7 +231,7 @@ function Inicio({ stats }) {
                                     <Card.Title className="text-muted small mb-2">Entrenadores</Card.Title>
                                     <Card.Text className="fs-2 fw-bold text-success mb-0">{stats.entrenadores}</Card.Text>
                                 </div>
-                                <div className="fs-1">🏋️</div>
+                                <div className="fs-1"></div>
                             </div>
                         </Card.Body>
                     </Card>
