@@ -39,13 +39,13 @@ function Login() {
                 <Col md={6} className="login-left d-flex align-items-center justify-content-center p-5">
                     <div className="text-center text-white">
                         <div className="mb-4">
-                            <h1 className="display-4 fw-bold">🏋️ SoftGym</h1>
+                            <h1 className="display-4 fw-bold">SoftGym</h1>
                             <p className="lead">Sistema de Gestión de Gimnasio</p>
                         </div>
                         <div className="login-illustration">
                             <img 
-                                src="https://img.freepik.com/free-vector/flat-design-people-working-out_23-2149018516.jpg" 
-                                alt="Gym Illustration" 
+                                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" 
+                                alt="Gym Equipment" 
                                 className="img-fluid rounded"
                                 style={{ maxHeight: '400px', opacity: 0.9 }}
                             />
@@ -108,6 +108,11 @@ function Login() {
                     </div>
                 </Col>
             </Row>
+            
+            {/* Footer con año dinámico - COMMIT 14 */}
+            <div className="text-center p-3 bg-light text-muted small border-top">
+              © {new Date().getFullYear()} SoftGym. Todos los derechos reservados.
+            </div>
         </Container>
     );
 }
