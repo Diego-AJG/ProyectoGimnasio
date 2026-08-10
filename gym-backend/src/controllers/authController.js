@@ -38,6 +38,13 @@ class AuthController {
                 return res.status(400).json({ error: 'El formato del email no es válido' });
             }
 
+            // Validar longitud mínima de contraseña
+            if (password.length < 6) {
+                return res.status(400).json({ 
+                    error: 'La contraseña debe tener al menos 6 caracteres' 
+                });
+            }
+
             res.status(201).json({
                 message: 'Usuario registrado exitosamente',
                 userId: nuevoUsuarioId
