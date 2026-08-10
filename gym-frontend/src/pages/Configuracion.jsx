@@ -113,7 +113,7 @@ function Configuracion() {
                 <Col md={6} className="mb-4">
                     <Card className="border-0 shadow-sm">
                         <Card.Header className="bg-white fw-bold">
-                             Mi Perfil
+                            Mi Cuenta de Administrador
                         </Card.Header>
                         <Card.Body>
                             <Form onSubmit={handlePerfilSubmit}>
