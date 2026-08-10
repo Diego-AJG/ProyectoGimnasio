@@ -11,6 +11,7 @@ import Asistencias from './Asistencias';
 import Reportes from './Reportes';
 import api from '../services/api';
 import './Dashboard.css';
+import Configuracion from './Configuracion';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -186,7 +187,7 @@ function Dashboard() {
                             <Route path="rutinas" element={<Rutinas />} />
                             <Route path="asistencias" element={<Asistencias />} />
                             <Route path="reportes" element={<Reportes />} />
-                            <Route path="configuracion" element={<div className="text-center p-5"><h3>Configuración (Próximamente)</h3></div>} />
+                            <Route path="configuracion" element={<Configuracion />} />
                         </Routes>
                     </div>
                 </Col>
