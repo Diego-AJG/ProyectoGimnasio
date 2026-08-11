@@ -6,7 +6,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares globales
-app.use(cors());
+// Configuración de CORS optimizada para despliegue (permite peticiones desde Vercel y localhost)
+app.use(cors({
+    origin: '*', // Permite peticiones desde cualquier origen (frontend desplegado)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 
 // Importar rutas
@@ -18,7 +24,6 @@ const pagoRoutes = require('./routes/pagoRoutes');
 const rutinaRoutes = require('./routes/rutinaRoutes');
 const asistenciaRoutes = require('./routes/asistenciaRoutes');
 
-
 // RUTAS PÚBLICAS
 app.use('/api/auth', authRoutes);
 
@@ -28,7 +33,7 @@ app.use('/api/entrenadores', entrenadorRoutes);
 app.use('/api/membresias', membresiaRoutes);
 app.use('/api/pagos', pagoRoutes);
 app.use('/api/rutinas', rutinaRoutes);
-app.use('/api/asistencias', asistenciaRoutes); // <-- ¡ESTA ERA LA LÍNEA QUE FALTABA!
+app.use('/api/asistencias', asistenciaRoutes); 
 
 // Ruta de prueba pública
 app.get('/api', (req, res) => {
@@ -40,7 +45,7 @@ app.get('/api', (req, res) => {
             login: '/api/auth/login',
             registro: '/api/auth/registro',
             socios: '/api/socios (requiere autenticación)',
-            entrenadores: '/api/entrenadores (requiere autenticación)' // Agregado para referencia
+            entrenadores: '/api/entrenadores (requiere autenticación)'
         }
     });
 });
@@ -52,6 +57,11 @@ app.get('/', (req, res) => {
         version: '1.0.0',
         documentation: '/api'
     });
+});
+
+// Manejo de rutas no encontradas (404)
+app.use((req, res) => {
+    res.status(404).json({ error: 'Ruta no encontrada' });
 });
 
 // Iniciar servidor
