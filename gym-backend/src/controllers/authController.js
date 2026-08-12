@@ -14,6 +14,13 @@ class AuthController {
                 });
             }
 
+            // Validar longitud mínima de contraseña
+            if (password.length < 6) {
+                return res.status(400).json({ 
+                    error: 'La contraseña debe tener al menos 6 caracteres' 
+                });
+            }
+
             // Verificar si el usuario ya existe
             const usuarioExistente = await UsuarioModel.buscarPorUsername(username);
             if (usuarioExistente) {
@@ -32,19 +39,6 @@ class AuthController {
                 rol || 'admin'
             );
 
-            // Validar formato de email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                return res.status(400).json({ error: 'El formato del email no es válido' });
-            }
-
-            // Validar longitud mínima de contraseña
-            if (password.length < 6) {
-                return res.status(400).json({ 
-                    error: 'La contraseña debe tener al menos 6 caracteres' 
-                });
-            }
-
             res.status(201).json({
                 message: 'Usuario registrado exitosamente',
                 userId: nuevoUsuarioId
@@ -58,7 +52,6 @@ class AuthController {
         }
     }
     
-
     // Login
     static async login(req, res) {
         try {
@@ -79,10 +72,10 @@ class AuthController {
                 });
             }
 
-            // Verificar contraseña
+            // Verificar contraseña (CORREGIDO: usar password en lugar de password_hash)
             const passwordValido = await UsuarioModel.verificarPassword(
                 password, 
-                usuario.password_hash
+                usuario.password  // ✅ CAMBIO: password en lugar de password_hash
             );
 
             if (!passwordValido) {
