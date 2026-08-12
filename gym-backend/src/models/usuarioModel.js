@@ -14,7 +14,7 @@ class UsuarioModel {
     // Crear nuevo usuario
     static async crear(username, passwordHash, rol) {
         const [result] = await db.query(
-            'INSERT INTO usuarios (username, password_hash, rol) VALUES (?, ?, ?)',
+            'INSERT INTO usuarios (username, password, rol) VALUES (?, ?, ?)',
             [username, passwordHash, rol]
         );
         return result.insertId;
